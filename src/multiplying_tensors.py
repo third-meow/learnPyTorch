@@ -21,3 +21,10 @@ display('random tensor * twos', rand * twos)
 big_rand = torch.rand((2, 2, 2, 2))
 display('big random tensor (2x2x2x2)', big_rand)
 
+display('big random tensor * 2', big_rand * 2)
+
+display('big random tensor * [2, 5] tensor', big_rand * torch.tensor([2., 5.]))
+
+display('big random tensor reshaped', big_rand.view(-1))
+
+
