@@ -33,7 +33,8 @@ for i in range(30):
 
     loss = mse(out, target)
 
-    print(loss)
+    # attempt to graph it
+    print('-' * int(loss.item() * 30.))
 
     net.zero_grad()
     loss.backward()
