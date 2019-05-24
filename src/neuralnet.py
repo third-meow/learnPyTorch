@@ -61,4 +61,4 @@ for p in range(20):
         optimizer.step()
 
     # Calculate and print average loss
-    print(total_loss/50)
+    print(f'Loss @ {p}/20 epochs:\t{total_loss.item()/50}')
