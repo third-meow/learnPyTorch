@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import torch.nn.functional as F
 import torchvision.transforms as transforms
 
+
 class MovingAverage():
     def __init__(self):
         self.total = 0
@@ -22,7 +23,7 @@ class MovingAverage():
         self.total += n
         self.count += 1
         self.calc()
-    
+
     # Reset average to 0
     def reset(self):
         self.__init__()
@@ -32,7 +33,7 @@ class MovingAverage():
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
-        
+
         # Setup layers
         self.conv1 = nn.Conv2d(3, 6, 5)
         self.pool = nn.MaxPool2d(2, 2)
@@ -54,6 +55,7 @@ class Net(nn.Module):
         x = self.fc3(x)
         return x
 
+
 # Display image, for debugging
 def imshow(img):
     img = img / 2 + 0.5
@@ -68,7 +70,6 @@ def main():
         [transforms.ToTensor(),
          transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))]
     )
-
 
     # Load CIFAR10 training set
     training_set = torchvision.datasets.CIFAR10(
@@ -100,13 +101,11 @@ def main():
         num_workers=2
     )
 
-
     # Create network, loss functino and optimizer
     net = Net()
     loss_func = nn.CrossEntropyLoss()
     optimizer = optim.SGD(net.parameters(), lr=0.0005, momentum=0.9)
 
-    
     for epoch in range(6):
         # Create moving average to track average loss
         avg_loss = MovingAverage()
@@ -133,7 +132,6 @@ def main():
             if i % 1000 == 0 and i != 0:
                 print(f'{epoch} | {i}\tLoss: {avg_loss.avg:.3f}')
                 avg_loss.reset()
-
 
     # Test accuracy
     accuracy = MovingAverage()
