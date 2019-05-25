@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# CIFAR10 dataset (to download, just run src/cnn.py)
+data/cifar*
+
 # Distribution / packaging
 .Python
 build/
