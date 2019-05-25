@@ -55,7 +55,7 @@ for p in range(20):
         # Keep track of total loss
         total_loss += loss
 
-        # Backprop network
+        # Backprop, and update network
         net.zero_grad()
         loss.backward()
         optimizer.step()
