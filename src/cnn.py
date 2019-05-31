@@ -108,9 +108,9 @@ def main():
     # Create network, loss functino and optimizer
     net = Net()
     loss_func = nn.CrossEntropyLoss()
-    optimizer = optim.SGD(net.parameters(), lr=0.0005, momentum=0.9)
+    optimizer = optim.SGD(net.parameters(), lr=0.0005, momentum=0.96)
 
-    for epoch in range(2):
+    for epoch in range(6):
         # Create moving average to track average loss
         avg_loss = MovingAverage()
 
